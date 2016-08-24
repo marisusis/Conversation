@@ -23,6 +23,9 @@ public class ConversationPlugin extends JavaPlugin {
 
 	@Override
 	public void onEnable() {
+		
+	    this.getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
+
 		// this.saveDefaultConfig();
 
 		if (!getDataFolder().exists()) {

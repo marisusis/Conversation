@@ -22,12 +22,9 @@ public class CommandMessage implements CommandExecutor {
 	
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-		if (sender instanceof Player) {
-			Player player = (Player) sender;
-			ByteArrayDataOutput out = ByteStreams.newDataOutput();
-			out.writeUTF("BungeeCord");
-			out.writeUTF("Message");
-			out.writeUTF(player.getName());
+//		if (sender instanceof Player) {
+//			Player player = (Player) sender;
+			player.sendMessage(args[0]);
 			StringBuilder builder = new StringBuilder();
 			for (int i=1;i<args.length;i++) {
 			    if (builder.length() > 0) {
@@ -35,18 +32,24 @@ public class CommandMessage implements CommandExecutor {
 			    }
 			    builder.append(args[i]);
 			}
+			player.sendMessage(builder.toString());
+			ByteArrayDataOutput out = ByteStreams.newDataOutput();
+			out.writeUTF("BungeeCord");
+			out.writeUTF("Message");
+			out.writeUTF(player.getName());
+			
 			out.writeUTF(builder.toString());
 
 			// If you don't care about the player // Player player =
 			// Iterables.getFirst(Bukkit.getOnlinePlayers(), null);
 			// Else, specify them
-//			Player plr = Bukkit.getPlayerExact("spacegeek224");
+			Player plr = Bukkit.getPlayerExact("spacegeek224");
 //
 			player.sendPluginMessage(p, "BungeeCord", out.toByteArray());
 			// Here we need to give items to our player
-		} else {
-			
-		}
+//		} else {
+//			
+//		}
 
 		// If the player (or console) uses our command correct, we can return
 		// true

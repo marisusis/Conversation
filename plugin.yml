@@ -5,3 +5,12 @@ commands:
   c:
     description: Conversation main command
     usage: /c
+  msg:
+    description: Conversation main command
+    usage: /msg <player> <message>
+  message:
+    description: Conversation main command
+    usage: /message <player> <message>
+  tell:
+    description: Conversation main command
+    usage: /tell <player> <message>
