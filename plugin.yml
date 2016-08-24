@@ -1,0 +1,7 @@
+name: Conversation
+main: net.spacegeek224.conversation.ConversationPlugin
+version: 0.0.1
+commands:
+  c:
+    description: Conversation main command
+    usage: /c
