@@ -14,6 +14,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import com.google.common.io.ByteStreams;
 
+import net.spacegeek224.conversation.command.CommandMessage;
+
 public class ConversationPlugin extends JavaPlugin {
 	public String[] configlist = { "config.yml", "db.yml" };
 
@@ -54,7 +56,9 @@ public class ConversationPlugin extends JavaPlugin {
 	}
 
 	public void registerCommands() {
-		
+		  this.getCommand("message").setExecutor(new CommandMessage(this));
+		  this.getCommand("tell").setExecutor(new CommandMessage(this));
+		  this.getCommand("msg").setExecutor(new CommandMessage(this));
 	}
 
 }
